@@ -10,6 +10,8 @@ import { useRouter } from "next/router";
 import { string } from "zod";
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from "@nextui-org/react";
 import { toast, Toaster } from 'react-hot-toast'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const SatisfyFont = Indie_Flower({
   subsets: ['latin'],
@@ -177,11 +179,11 @@ export default function Home() {
                 </div>
 
                 <div className={`flex ml-auto px-4 py-1 ${InterFont.className}`}>
-                  <span className="text-slate-500 border-b-2 border-gray-800 border-dotted ml-1">{image?.personalityName}</span>
+                  <span className="text-slate-500 border-b-2 text-sm self-center flex ml-1">{image?.personalityName}</span>
                 </div>
               </ModalHeader>
               <ModalBody>
-                <img src={image?.url} />
+                <LazyLoadImage className="w-full" effect="blur" src={image?.url} />
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
