@@ -12,11 +12,12 @@ export const mainRouter = createTRPCRouter({
     }),
   getImagefromCategories: publicProcedure
     .input(z.object({
-      categories: z.string().array()
+      categories: z.string().array(),
+      localStorage: z.string().array()
     }))
     .mutation(async ({ctx, input}) => {
       const {prisma} = ctx;
-      const {categories} = input;
+      const {categories, localStorage} = input;
 
       const query = await prisma.image.findMany({
         include: {
@@ -25,7 +26,9 @@ export const mainRouter = createTRPCRouter({
         }
       })
 
-      const filtered = query.filter((i) => {
+      const filterThroughLocalStorage = query.filter((q) => !localStorage.includes(q.url))
+
+      const filtered = filterThroughLocalStorage.filter((i) => {
         const imageCategories = i.category.map((c) => c.name);
         categories;
 
