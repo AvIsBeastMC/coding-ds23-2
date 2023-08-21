@@ -41,6 +41,10 @@ export default function NavbarComponent() {
       title: "💻 GitHub",
       href: "https://github.com/AvIsBeastMC/coding-ds23-2"
     },
+    {
+      title: "☁ Drive Folder",
+      href: "https://drive.google.com/drive/folders/1wKutu9ib1TTwKSaplEInjvq8R1xCJn8j?usp=sharing"
+    },
   ];
 
   return (
