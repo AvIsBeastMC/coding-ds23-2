@@ -34,6 +34,10 @@ export default function NavbarComponent() {
       href: "/presentation.pptx"
     },
     {
+      title: "⚡ Documentation",
+      href: "/documentation.pdf"
+    },
+    {
       title: "💻 GitHub",
       href: "https://github.com/AvIsBeastMC/coding-ds23-2"
     },
