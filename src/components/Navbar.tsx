@@ -64,7 +64,7 @@ export default function NavbarComponent() {
 
         {menuItems.map((m, i) => (
           <NavbarItem key={i} isActive={router.pathname == m.href}>
-            <Link href={m.href}>
+            <Link href={m.href} color={router.pathname !== m.href ? "danger" : undefined}>
               {m.title}
             </Link>
           </NavbarItem>
