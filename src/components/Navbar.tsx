@@ -16,7 +16,7 @@ export const UnboundedFont = Unbounded({
 
 const Logo = () => {
   return (
-    <img src="/logo.jpg" className="w-6 h-6 rounded-full mr-3" />
+    <img src="/logo.jpg" className="w-8 h-8 rounded-full mr-3" />
   )
 }
 
@@ -28,7 +28,11 @@ export default function NavbarComponent() {
     {
       title: "Home",
       href: "/"
-    }
+    },
+    {
+      title: "Presentation",
+      href: "/presentation.pptx"
+    },
   ];
 
   return (
@@ -43,7 +47,7 @@ export default function NavbarComponent() {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
-          <Link href="/" >
+          <Link href="/">
             <Logo />
             <p className={`text-inherit ${InterFont.className}`}>InnoVision</p>
           </Link>
@@ -54,13 +58,13 @@ export default function NavbarComponent() {
         <NavbarBrand>
           <NextLink href="/" className="flex hover:opacity-50 transition">
             <Logo />
-            <p className={`text-inherit ${InterFont.className}`}>InnoVision</p>
+            <p className={`text-inherit flex self-center ${InterFont.className}`}>InnoVision</p>
           </NextLink>
         </NavbarBrand>
 
         {menuItems.map((m, i) => (
           <NavbarItem key={i} isActive={router.pathname == m.href}>
-            <Link href="#">
+            <Link href={m.href}>
               {m.title}
             </Link>
           </NavbarItem>
@@ -75,7 +79,7 @@ export default function NavbarComponent() {
               color={
                 index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
               }
-              href="#"
+              href={item.href}
               size="lg"
             >
               {item.title}
