@@ -26,12 +26,16 @@ export default function NavbarComponent() {
 
   const menuItems: { href: string, title: string }[] = [
     {
-      title: "Home",
+      title: "🏠 Home",
       href: "/"
     },
     {
-      title: "Presentation",
+      title: "📃 Presentation",
       href: "/presentation.pptx"
+    },
+    {
+      title: "💻 GitHub",
+      href: "https://github.com/AvIsBeastMC/coding-ds23-2"
     },
   ];
 
